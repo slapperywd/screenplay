@@ -8,6 +8,7 @@ using CSF.Screenplay;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Selenium.Builders;
 using NUnit.Framework;
+using Screenplay.Abilities;
 using Screenplay.Actions;
 using Screenplay.Actors;
 using Get = Screenplay.Actions.Get;
@@ -24,7 +25,7 @@ namespace Screenplay
         public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(ICast cast)
         {
             var mathias = cast.Get<Mathias>();
-            Given(mathias).WasAbleTo(StartWith.TheNumber(10));
+            Given(mathias).WasAbleTo(StartWith.TheNumber(10));//();
             When(mathias).AttemptsTo(Add.TheNumber(100));
             var result = Then(mathias).ShouldSee(Get.TheNumber());
            // Assert.That(result, Is.EqualTo(110));
@@ -35,6 +36,16 @@ namespace Screenplay
 
             //Assert.That(message, Is.EqualTo("Thankyou for buying eggs."));
 
+        }
+
+        [Test, Screenplay]
+        public void JoeShouldBeAbleToSeachTheNews(ICast cast)
+        {
+            var joe = cast.Get<Joe>();
+            //Given(joe).WasAbleTo(Search.ForNews());
+            When(joe).AttemptsTo(Search.ForNews("Belarus"));
+            var count = Then(joe).ShouldSee(Get.GetNewsCount());
+            Assert.AreEqual(count, 5);
         }
     }
 }

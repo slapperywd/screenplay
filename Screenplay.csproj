@@ -93,11 +93,14 @@
     <Compile Include="Abilities\AddNumbers.cs" />
     <Compile Include="Abilities\SearchTheNews.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
+    <Compile Include="Actions\GetTheNews.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
+    <Compile Include="Actions\SearchForNews.cs" />
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actors\Mathias.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Class2.cs" />
+    <Compile Include="Extensions\NumbersActionsExtensions.cs" />
     <Compile Include="Joe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenplayIntegrationConfig.cs" />

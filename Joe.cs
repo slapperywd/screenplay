@@ -12,6 +12,7 @@ namespace Screenplay
         public override void GrantAbilities(ICanReceiveAbilities actor, IResolvesServices resolver)
         {
             actor.IsAbleTo<AddNumbers>();
+            actor.IsAbleTo<SearchTheNews>();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Screenplay.Actions
         protected override string GetReport(INamed actor) => $"{actor.Name} reads the current number";
     }
 
-    public class Get
+    public partial class Get
     {
         public static IQuestion<int> TheNumber()
         {
