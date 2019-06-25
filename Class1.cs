@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay;
 using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Builders;
 using NUnit.Framework;
 using Screenplay.Abilities;
 using Screenplay.Actions;
 using Screenplay.Actors;
+using Screenplay.Pages;
 using Get = Screenplay.Actions.Get;
+using CSF.Screenplay.Selenium.Abilities;
 
 
 namespace Screenplay
@@ -46,6 +49,17 @@ namespace Screenplay
             When(joe).AttemptsTo(Search.ForNews("Belarus"));
             var count = Then(joe).ShouldSee(Get.GetNewsCount());
             Assert.AreEqual(count, 5);
+        }
+
+        [Test, Screenplay]
+        [Description("Clicking on the link to page two navigates to the second page.")]
+        public void WebUiTest(ICast cast, BrowseTheWeb browseTheWeb)
+        {
+            var joe = cast.Get<Joe>();
+            joe.IsAbleTo(browseTheWeb);
+
+            Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+            When(joe).AttemptsTo(Enter.TheText("blabla@email.bla").Into(HomePage.EmalInput));
         }
     }
 }

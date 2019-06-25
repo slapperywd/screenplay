@@ -10,9 +10,9 @@ namespace Screenplay.Extensions
 {
     public static class NumbersActionsExtensions
     {
-        public static IPerformable SetNumber(this HasTheNumber hasTheNumber, int number)
-        {
-            return new HasTheNumber(number);
-        }
+        //public static IPerformable SetNumber(this HasTheNumber hasTheNumber, int number)
+        //{
+        //    return new HasTheNumber(number);
+        //}
     }
 }
